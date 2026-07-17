@@ -23,6 +23,10 @@ body {
   font-family: var(--font-plus-jakarta-sans), Arial, Helvetica, sans-serif;
 }
 
+.notch-btn {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+}
+
 .glass-card {
   background: linear-gradient(
     to bottom,

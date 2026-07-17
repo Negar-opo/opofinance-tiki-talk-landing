@@ -23,7 +23,7 @@ export default function Header() {
 
         <a
           href="#reserve"
-          className="shrink-0 rounded-none bg-accent-green px-6 py-3.5 text-sm font-bold text-white sm:text-base"
+          className="notch-btn shrink-0 border border-accent-green bg-accent-green/20 px-6 py-3.5 text-sm font-bold text-white sm:text-base"
         >
           Get My Seat
         </a>

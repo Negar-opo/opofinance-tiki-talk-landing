@@ -25,7 +25,7 @@ export default function Hero() {
           </div>
           <a
             href="#reserve"
-            className="mt-2 flex items-center justify-center bg-accent-green px-8 py-4 text-lg font-bold text-white sm:text-xl"
+            className="notch-btn mt-2 flex items-center justify-center border border-accent-green bg-accent-green/20 px-8 py-4 text-lg font-bold text-white sm:text-xl"
           >
             Join The Live Desk&nbsp;→
           </a>
