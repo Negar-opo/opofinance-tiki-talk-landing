@@ -19,7 +19,7 @@ export default function Hero() {
             <br />
             Real <span className="text-accent-green">Market.</span>
           </h1>
-          <div className="text-lg font-light leading-relaxed text-white sm:text-xl lg:text-[23px]">
+          <div className="text-lg font-light leading-relaxed text-white sm:text-xl lg:text-[22px]">
             <p>Football pressure meets market pressure.</p>
             <p>Football and markets collide. Live charts. Real data.</p>
           </div>
@@ -30,7 +30,7 @@ export default function Hero() {
             Join The Live Desk&nbsp;→
           </a>
 
-          <div className="mt-6 flex w-full flex-wrap items-center justify-center gap-6 border border-white/12 bg-white/8 px-6 py-6 sm:justify-start sm:gap-10">
+          <div className="mt-6 flex w-fit max-w-full flex-wrap items-center justify-center gap-3 border border-white/12 bg-white/8 px-6 py-5">
             {heroStats.map((stat) => (
               <div
                 key={stat.label}
