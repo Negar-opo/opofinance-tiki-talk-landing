@@ -26,8 +26,8 @@ export async function POST(request: Request) {
   try {
     const res = await fetch(webhookUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ email }).toString(),
       redirect: "follow",
     });
 
