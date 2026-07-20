@@ -27,6 +27,13 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
 }
 
+/* Solid equivalent of accent-green/20 over black — used as an opaque fill so
+   the notch-btn border ring shows fully around the clipped corner instead of
+   being cut off (clip-path clips away the border on the edge it creates). */
+.notch-btn-fill {
+  background-color: color-mix(in srgb, var(--accent-green) 20%, black);
+}
+
 .glass-card {
   background: linear-gradient(
     to bottom,

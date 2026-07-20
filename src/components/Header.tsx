@@ -24,9 +24,11 @@ export default function Header() {
 
           <a
             href="#reserve"
-            className="notch-btn shrink-0 border border-accent-green bg-accent-green/20 px-6 py-3.5 text-sm font-bold text-white sm:text-base"
+            className="notch-btn inline-flex shrink-0 bg-accent-green p-px"
           >
-            Get My Seat
+            <span className="notch-btn notch-btn-fill flex items-center justify-center px-6 py-3.5 text-sm font-bold text-white sm:text-base">
+              Get My Seat
+            </span>
           </a>
         </div>
       </div>
