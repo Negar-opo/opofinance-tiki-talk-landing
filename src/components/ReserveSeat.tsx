@@ -69,7 +69,7 @@ export default function ReserveSeat() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email Address"
-            className="h-[63px] w-full flex-1 border-[0.8px] border-white bg-white/12 px-4 text-lg text-white placeholder:text-white/70 focus:outline-none disabled:opacity-60"
+            className="h-[63px] w-full border-[0.8px] border-white bg-white/12 px-4 text-lg text-white placeholder:text-white/70 focus:outline-none disabled:opacity-60 sm:flex-1"
           />
           <button
             type="submit"
