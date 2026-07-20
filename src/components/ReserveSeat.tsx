@@ -2,15 +2,25 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { submitReservation } from "@/lib/reserveSeat";
 
 export default function ReserveSeat() {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "submitting" | "submitted" | "error">("idle");
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email) return;
-    setSubmitted(true);
+    if (!email || status === "submitting") return;
+    setStatus("submitting");
+    setError(null);
+    const result = await submitReservation(email);
+    if (result.ok) {
+      setStatus("submitted");
+    } else {
+      setStatus("error");
+      setError(result.error ?? "Something went wrong. Please try again.");
+    }
   }
 
   return (
@@ -55,18 +65,25 @@ export default function ReserveSeat() {
           <input
             type="email"
             required
+            disabled={status === "submitting" || status === "submitted"}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email Address"
-            className="h-[63px] w-full flex-1 border-[0.8px] border-white bg-white/12 px-4 text-lg text-white placeholder:text-white/70 focus:outline-none"
+            className="h-[63px] w-full flex-1 border-[0.8px] border-white bg-white/12 px-4 text-lg text-white placeholder:text-white/70 focus:outline-none disabled:opacity-60"
           />
           <button
             type="submit"
-            className="flex h-[63px] shrink-0 items-center justify-center gap-2.5 border-[0.8px] border-accent-green bg-accent-green/20 px-6 text-lg font-bold text-white capitalize"
+            disabled={status === "submitting" || status === "submitted"}
+            className="flex h-[63px] shrink-0 items-center justify-center gap-2.5 border-[0.8px] border-accent-green bg-accent-green/20 px-6 text-lg font-bold text-white capitalize disabled:opacity-70"
           >
-            {submitted ? "You're in! →" : "join tiki-talk →"}
+            {status === "submitted"
+              ? "You're in! →"
+              : status === "submitting"
+                ? "Joining…"
+                : "join tiki-talk →"}
           </button>
         </form>
+        {error && <p className="text-sm text-red-400">{error}</p>}
 
         <div className="flex h-[47px] items-center justify-center rounded-[15px] bg-[#1d79fd]/80 px-5 text-lg font-medium capitalize text-white">
           3 Seats Left Today
